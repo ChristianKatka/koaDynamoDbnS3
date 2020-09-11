@@ -1,0 +1,23 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: S3 Bucket for documents
+
+Resources:
+
+  Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+    # voi graafisesta käyttöliittymästä mennä katsomaan kuvaa
+      AccessControl: PublicRead
+      BucketName: 'krisuns3testi'
+      CorsConfiguration:
+        CorsRules:
+          - AllowedHeaders:
+              - '*'
+            MaxAge: '300'
+            AllowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+            AllowedOrigins:
+              - '*'
