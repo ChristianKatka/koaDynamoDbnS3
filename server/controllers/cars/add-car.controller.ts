@@ -12,11 +12,17 @@ export const addCar = async (ctx: Context, next: Next) => {
   // SHOULD BE TOKEN
   const userId = ctx.params.userId
 
-  const car: Car = {
+  const car: any = {
     carId: carId,
     name: ctx.request.body.name,
     model: ctx.request.body.model,
+    engine: ctx.request.body.engine,
+    registered: ctx.request.body.registered,
     year: ctx.request.body.year,
+    price: ctx.request.body.price,
+    kilometers: ctx.request.body.kilometers,
+    location: ctx.request.body.location,
+    description: ctx.request.body.description,
   };
 
   const userCar: UserCar = {

@@ -13,17 +13,14 @@ exports.getCars = void 0;
 const aws_1 = require("../../aws");
 exports.getCars = (ctx, next) => __awaiter(void 0, void 0, void 0, function* () {
     const params = {
-        TableName: "cars",
-        Key: {
-            carId: "1d8a71f1-36b3-4ef7-bdb1-2b742228f590",
-        },
+        TableName: 'cars',
     };
     yield aws_1.docClient
-        .get(params)
+        .scan(params)
         .promise()
         .then((response) => {
         ctx.status = 200;
-        ctx.body = response.Item;
+        ctx.body = response.Items;
     })
         .catch((err) => {
         ctx.status = 500;
