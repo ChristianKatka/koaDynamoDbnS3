@@ -11,16 +11,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getSignedUrl = void 0;
 const aws_1 = require("../aws");
+const index_1 = require("../constants/index");
 exports.getSignedUrl = (ctx) => __awaiter(void 0, void 0, void 0, function* () {
     const action = "putObject";
     const params = {
-        Bucket: "krisuns3testi",
-        Key: ctx.request.query.key,
-        ContentType: ctx.request.query.contenttype.replace('-', '/'),
-        Expires: 800,
+        Bucket: "s3kuvat",
+        Key: 'test-testikuva1.jpg',
+        ContentType: 'image/jpeg',
     };
     const signedUrl = yield aws_1.s3Client.getSignedUrlPromise(action, params);
-    ctx.response.body = { signedUrl };
+    ctx.response.body = { signedUrl, imageURL: `${index_1.DOCUMENTS_URL}/test-testikuva1.jpg`, };
     ctx.status = 200;
 });
 //# sourceMappingURL=get-signed-url.js.map

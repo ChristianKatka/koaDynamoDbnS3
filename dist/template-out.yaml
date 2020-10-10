@@ -79,7 +79,7 @@ Resources:
   API:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://omanapinlambdakoodit/c4b687ca3f4d4e5f0ed640b10babd221
+      CodeUri: s3://koaapilambda/d9291e1739a88e4f06eb491624862cb5
       Handler: index.handler
       MemorySize: 256
       Role:

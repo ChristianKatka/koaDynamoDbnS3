@@ -12,7 +12,6 @@ if (process.env.NODE_ENV === "development") {
 }
 
 
-
 AWS.config.update({
   region: "eu-west-1",
 });

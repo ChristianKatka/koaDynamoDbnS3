@@ -102,3 +102,25 @@ Resources:
             Path: $default
             PayloadFormatVersion: "1.0"
             Method: ANY
+# Lisätty jotta saisi näkymään uploadatun kuvan
+        ApiEventPublic:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref ApiGatewayHttpApi
+            Auth:
+              Authorizer: NONE
+            Path: /public/{proxy+}
+            PayloadFormatVersion: "1.0"
+            Method: ANY
+      Environment:
+        Variables:
+          APPLICATION_NAME: !Ref ApplicationName
+          ENVIRONMENT_NAME: !Ref EnvironmentName
+          S3_DOCUMENTS_BUCKET:
+            !FindInMap [PropertiesMap, !Ref EnvironmentName, S3DocumentsBucket]
+          CF_DOCUMENTS_CNAME:
+            !FindInMap [
+              PropertiesMap,
+              !Ref EnvironmentName,
+              DocumentsOriginCNAME,
+            ]

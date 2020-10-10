@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "config": {
     "region": "eu-west-1",
-    "s3lambdaBucket": "omanapinlambdakoodit",
+    "s3lambdaBucket": "koaapilambda",
     "myProfile": "krisuiam",
-    "myCloudFormationStackName": "cloudformationstack1"
+    "myCloudFormationStackName": "carsapi"
   },
   "scripts": {
     "start": "nodemon ./server/dev.ts",

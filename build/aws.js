@@ -29,6 +29,7 @@ if (process.env.NODE_ENV === "development") {
         region: process.env.AWS_DEFAULT_REGION,
     });
 }
+console.log('täs mun credentiaalit: ', AWS.config.credentials);
 AWS.config.update({
     region: "eu-west-1",
 });
